@@ -1,3 +1,3 @@
-# Ray Marching 3D fractals.
+# Ray Marching 3D Fractals.
 
 (work in progress)
