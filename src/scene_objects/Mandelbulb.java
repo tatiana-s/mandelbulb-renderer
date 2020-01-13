@@ -13,6 +13,8 @@ public class Mandelbulb extends SceneObject {
         this.power = power;
     }
 
+    // distance estimator from
+    // http://blog.hvidtfeldts.net/index.php/2011/09/distance-estimated-3d-fractals-v-the-mandelbulb-different-de-approximations/
     @Override
     public double getSDF(Vector point) {
         // initialisation
