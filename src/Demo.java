@@ -8,17 +8,17 @@ import java.io.IOException;
 
 public class Demo {
 
-    private static final int WIDTH_PX = 640;
-    private static final int HEIGHT_PX = 480;
-    private static final String OUTPUT_FILE = "output.png";
+    // image size
+    private static final int WIDTH_PX = 5040; //1280
+    private static final int HEIGHT_PX = 3840; //960
 
 
     public static void main(String[] args) throws IOException {
-        createImage("Sphere");
+        createImage("Mandelbulb", "demo.png");
     }
 
     // choose between different examples
-    private static void createImage(String object) throws IOException {
+    private static void createImage(String object, String filename) throws IOException {
         Renderer renderer = new Renderer(WIDTH_PX, HEIGHT_PX);
         BufferedImage image = null;
 
@@ -27,7 +27,7 @@ public class Demo {
                 image = renderer.render(new Sphere(10));
                 break;
             case "Mandelbulb":
-                image = renderer.render(new Mandelbulb());
+                image = renderer.render(new Mandelbulb(7));
                 break;
             default:
                 break;
@@ -35,7 +35,7 @@ public class Demo {
 
         // Save the image to disk
         if (image != null) {
-            File save = new File(OUTPUT_FILE);
+            File save = new File(filename);
             ImageIO.write(image, "png", save);
         }
     }

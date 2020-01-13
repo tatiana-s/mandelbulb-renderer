@@ -1,6 +1,6 @@
 package util;
 
-// helper class to pass and return pixels
+// helper class to pass and return pixels as one value
 public class Pixel {
 
     public int x;

@@ -7,14 +7,15 @@ import java.awt.image.BufferedImage;
 
 public class Renderer {
 
-    // scene constants
-    private final static int WORLD_UNIT_PIXELS = 10;
-    private final static Vector CAMERA_ORIGIN = new Vector(-20, 0, 0);
+    // scene constants (magic numbers which make the fractal appear and not some strange abstract art or a black screen)
+    private final static int WORLD_UNIT_PIXELS = 800; //200
+    private final static Vector CAMERA_ORIGIN = new Vector(-1.8, 0, 0);
 
     // ray marching constants
     private final static int MAX_MARCHING_STEPS = 50;
-    private final static double MINIMUM_DISTANCE = 0.01;
+    private final static double MINIMUM_DISTANCE = 0.0005; //0.01
 
+    // scene size in world units
     int width_px;
     int height_px;
 
@@ -60,6 +61,7 @@ public class Renderer {
         return new Pixel(width_px / 2, height_px / 2);
     }
 
+    // for finding the ray marching vector
     private Vector convertPixelToWorld(Pixel p) {
         double x2 = (p.x - getCameraOrigin().x) / (double) WORLD_UNIT_PIXELS;
         double x3 = (getCameraOrigin().y - p.y) / (double) WORLD_UNIT_PIXELS;
